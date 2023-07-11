@@ -26,6 +26,15 @@ class VkTools:
                      }
         return user_info
 
+    def get_city(self, city_string):
+
+        info = self.api.method('database.getCities',
+                                {'country_id': 1,
+                                 'q': city_string
+                                 }
+                                )
+        return info['items'][0]['id']
+
     def serch_users(self, params, offset):
 
         sex = 1 if params['sex'] == 2 else 2
